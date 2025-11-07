@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Retail Store - Educational Demo</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        /* Top Navigation Bar */
+        .navbar {
+            background-color: #d62828; /* Attention-grabbing red */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
+        /* Marquee Alert Area */
+        .alert-marquee {
+            background-color: #ffaa00; /* Bright warning yellow/orange */
+            color: #1a1a1a;
+            padding: 8px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        /* Main Content Styling */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .product-section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .product-section h2 {
+            color: #d62828;
+            margin-bottom: 15px;
+        }
+        .product-card {
+            display: inline-block;
+            width: 30%;
+            margin: 1.5%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            vertical-align: top;
+        }
+        .buy-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to My Website!</h1>
-<p>This is hosted on GitHub Pages.</p>
+
+    <div class="navbar">
+        <h1>THE PHANTOM SHOP</h1>
+    </div>
+
+    <div class="alert-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            *** EDUCATIONAL NOTICE: This page is created to test website structure and demonstration of HTML/CSS. This is not a real store. ***
+        </marquee>
+    </div>
+
+    <div class="container">
+        <div class="product-section">
+            <h2>Featured Products: Sale!</h2>
+            
+            <div class="product-card">
+                <h3>Mock Item 1</h3>
+                <p>A beautifully generic placeholder item.</p>
+                <p>Price: <strike>$49.99</strike> **$29.99**</p>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Mock Item 2</h3>
+                <p>The best in its entirely fictional class.</p>
+                <p>Price: <strike>$99.99</strike> **$75.00**</p>
+                <button class="buy-button">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Mock Item 3</h3>
+                <p>Limited stock! Hurry and purchase.</p>
+                <p>Price: **$19.99**</p>
+                <button class="buy-button">View Details</button>
+            </div>
+            
+        </div>
+        
+        <div class="product-section" style="text-align: left;">
+            <h2>About Us</h2>
+            <p>We are a highly successful, yet completely imaginary, retail organization dedicated to demonstrating basic web page structure and safety principles.</p>
+            <p>Always verify the URL and look for the padlock icon in your browser before interacting with a commercial website.</p>
+        </div>
+    </div>
+
 </body>
 </html>
