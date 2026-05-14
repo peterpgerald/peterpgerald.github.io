@@ -1,99 +1,1122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1C1C1 Bank - Login</title>
-    <style>
-        /* Simple CSS for styling and centering */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #4CAF50; /* Fun Bank Green */
-            margin-bottom: 25px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .input-group input[type="text"],
-        .input-group input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box; /* Includes padding in the element's total width and height */
-        }
-
-        button {
-            background-color: #4CAF50; /* Fun Bank Green */
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        marquee {
-            color:red;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>German Grammar — Full Curriculum A1 to C1</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f5f5f3;--bg3:#ebebea;
+  --text:#1a1a1a;--text2:#555552;--text3:#99988f;
+  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
+  --info-bg:#e6f1fb;--info-text:#0c447c;--info-border:rgba(24,95,165,0.35);
+  --success-bg:#eaf3de;--success-text:#3b6d11;--success-border:rgba(59,109,17,0.3);
+  --danger-bg:#fcebeb;--danger-text:#a32d2d;--danger-border:rgba(163,45,45,0.3);
+  --warn-bg:#faeeda;--warn-text:#854f0b;--warn-border:rgba(133,79,11,0.3);
+  --r:8px;--rl:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1c1c1a;--bg2:#252523;--bg3:#2d2d2b;
+    --text:#f0efea;--text2:#aaa89f;--text3:#6b6a65;
+    --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.18);
+    --info-bg:#0c2a44;--info-text:#85b7eb;--info-border:rgba(55,138,221,0.35);
+    --success-bg:#172c0a;--success-text:#97c459;--success-border:rgba(99,153,34,0.3);
+    --danger-bg:#2d1010;--danger-text:#f09595;--danger-border:rgba(226,75,74,0.3);
+    --warn-bg:#2a1e08;--warn-text:#ef9f27;--warn-border:rgba(186,117,23,0.3);
+  }
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
+/* Layout */
+.shell{display:flex;min-height:100vh}
+.sidebar{width:220px;min-width:220px;background:var(--bg2);border-right:0.5px solid var(--border);padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh}
+.main{flex:1;padding:24px 28px 60px;overflow-y:auto;max-width:820px}
+.sidebar-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;padding:0 16px;margin-bottom:8px;margin-top:12px}
+.sidebar-title:first-child{margin-top:0}
+.level-group{margin-bottom:4px}
+.level-btn{width:100%;text-align:left;font-size:13px;padding:7px 16px;border:none;background:transparent;color:var(--text2);cursor:pointer;border-left:3px solid transparent;font-family:inherit;transition:all 0.12s}
+.level-btn:hover{background:var(--bg3);color:var(--text)}
+.level-btn.active{background:var(--info-bg);color:var(--info-text);border-left-color:var(--info-text);font-weight:500}
+.level-btn.done{color:var(--success-text)}
+.level-btn.done::after{content:' ✓';font-size:11px}
+.topic-btn{width:100%;text-align:left;font-size:12px;padding:5px 16px 5px 28px;border:none;background:transparent;color:var(--text3);cursor:pointer;font-family:inherit;transition:all 0.12s;border-left:3px solid transparent}
+.topic-btn:hover{color:var(--text2);background:var(--bg3)}
+.topic-btn.active{color:var(--info-text);background:var(--info-bg);border-left-color:var(--info-text)}
+.topic-btn.done{color:var(--success-text)}
+.topic-btn.done::after{content:' ✓';font-size:10px}
+/* Top bar */
+.topbar{display:flex;gap:8px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+.topbar h2{font-size:20px;font-weight:500;flex:1}
+.mode-toggle{display:flex;border:0.5px solid var(--border2);border-radius:var(--r);overflow:hidden}
+.mode-toggle button{font-size:13px;padding:6px 18px;border:none;background:transparent;color:var(--text2);cursor:pointer;font-family:inherit;transition:all 0.12s}
+.mode-toggle button.active{background:var(--info-bg);color:var(--info-text);font-weight:500}
+/* Cards */
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:14px}
+.card-title{font-size:12px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+/* Rules table */
+.rules-table{width:100%;border-collapse:collapse;font-size:14px}
+.rules-table th{text-align:left;font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;padding:0 0 8px;border-bottom:0.5px solid var(--border)}
+.rules-table td{padding:7px 0;border-bottom:0.5px solid var(--border);vertical-align:top}
+.rules-table tr:last-child td{border-bottom:none}
+.rules-table td:first-child{font-weight:500;color:var(--text);padding-right:20px;width:45%}
+.rules-table td:last-child{color:var(--text2)}
+.rule-note{font-size:13px;color:var(--text2);background:var(--bg2);border-radius:var(--r);padding:12px 14px;margin-top:14px;line-height:1.7}
+.rule-note strong{color:var(--text);font-weight:500}
+/* Practice */
+.score-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.score-pill{background:var(--bg2);border-radius:var(--r);padding:7px 14px;font-size:13px;color:var(--text2)}
+.score-pill span{font-weight:500;color:var(--text)}
+.prog-wrap{height:5px;background:var(--bg3);border-radius:3px;margin-bottom:16px;overflow:hidden}
+.prog-fill{height:100%;background:var(--info-text);border-radius:3px;transition:width 0.3s}
+.q-num{font-size:12px;color:var(--text3);margin-bottom:6px}
+.q-text{font-size:16px;font-weight:500;color:var(--text);margin-bottom:16px;line-height:1.5}
+input[type=text]{width:100%;font-size:14px;padding:9px 12px;border-radius:var(--r);border:0.5px solid var(--border2);background:var(--bg);color:var(--text);font-family:inherit;outline:none}
+input[type=text]:focus{box-shadow:0 0 0 2px var(--info-border);border-color:transparent}
+.hint-text{font-size:12px;color:var(--text3);margin-top:7px;font-style:italic;min-height:18px}
+.btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+button{font-size:13px;padding:7px 18px;border-radius:var(--r);border:0.5px solid var(--border2);background:var(--bg);color:var(--text);cursor:pointer;font-family:inherit;transition:all 0.12s}
+button:hover{background:var(--bg2)}
+button:active{transform:scale(0.98)}
+.btn-p{background:var(--info-bg);color:var(--info-text);border-color:var(--info-border);font-weight:500}
+.btn-p:hover{background:var(--info-bg);opacity:0.9}
+.btn-s{background:var(--success-bg);color:var(--success-text);border-color:var(--success-border);font-weight:500}
+.feedback{margin-top:14px;padding:12px 14px;border-radius:var(--r);font-size:14px;line-height:1.6;display:none}
+.feedback.ok{background:var(--success-bg);color:var(--success-text);display:block}
+.feedback.bad{background:var(--danger-bg);color:var(--danger-text);display:block}
+/* Evaluation */
+.eval-header{text-align:center;padding:24px 0 16px}
+.eval-header h3{font-size:18px;font-weight:500;margin-bottom:6px}
+.eval-header p{font-size:14px;color:var(--text2)}
+.big-score{font-size:48px;font-weight:500;text-align:center;margin:16px 0 4px}
+.big-label{font-size:14px;color:var(--text2);text-align:center;margin-bottom:20px}
+.eval-result{padding:14px 16px;border-radius:var(--r);font-size:14px;line-height:1.7;margin-bottom:14px}
+.eval-pass{background:var(--success-bg);color:var(--success-text)}
+.eval-fail{background:var(--warn-bg);color:var(--warn-text)}
+.badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:10px;font-weight:500}
+.badge-a1{background:#eaf3de;color:#3b6d11}
+.badge-a2{background:#e1f5ee;color:#0f6e56}
+.badge-b1{background:#faeeda;color:#854f0b}
+.badge-b2{background:#faece7;color:#993c1d}
+.badge-c1{background:#eeedfe;color:#3c3489}
+.welcome{max-width:520px;margin:40px auto;text-align:center}
+.welcome h2{font-size:22px;font-weight:500;margin-bottom:10px}
+.welcome p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:20px}
+.level-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:20px}
+.level-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:14px;cursor:pointer;text-align:center;transition:border-color 0.12s}
+.level-card:hover{border-color:var(--info-border)}
+.level-card .lc-title{font-size:18px;font-weight:500;margin-bottom:4px}
+.level-card .lc-sub{font-size:12px;color:var(--text2)}
+@media(max-width:600px){.shell{flex-direction:column}.sidebar{width:100%;height:auto;position:static;display:flex;flex-wrap:wrap;gap:4px;padding:12px}.main{padding:16px 12px 40px}}
+</style>
 </head>
 <body>
-    <div class="alert-marquee">
-        <marquee behavior="scroll" direction="left" scrollamount="6">
-            *** EDUCATIONAL NOTICE: This page is created to MOCK a PHISHING website to demonstrate a use case ***
-        </marquee>
-    </div>
-    <div class="login-container">
-        <center><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/13/77/9f/13779f85-31a1-542c-99b0-fbfce7690737/AppIcon-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg" width="250" height="250" alt="Company Name Logo"></img></center>
-        <h2>1C1C1 Bank Login</h2>
-        <form action="#" method="post"> <div class="input-group">
-                <label for="username">Username / Account No.</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            
-            <button type="submit">Log In</button>
-        </form>
-    </div>
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <div id="sidebarContent"></div>
+  </nav>
+  <div class="main" id="main">
+    <div id="view"></div>
+  </div>
+</div>
 
+<script>
+const CURRICULUM = {
+  A1: {
+    label: 'A1 — Beginner',
+    description: 'Absolute basics: greetings, simple sentences, key verbs, numbers.',
+    topics: [
+      {
+        id:'a1_sein', title:'Verb: sein (to be)',
+        rules:[
+          ['Ich bin','I am — Ich bin Ingenieur.'],
+          ['Du bist','You are — Du bist neu.'],
+          ['Er / Sie / Es ist','He/She/It is — Er ist müde.'],
+          ['Wir sind','We are — Wir sind ein Team.'],
+          ['Ihr seid','You all are — Ihr seid Entwickler.'],
+          ['Sie sind','They / You (formal) are — Sie sind Experten.']
+        ],
+        note:'<strong>Sein</strong> is the most important German verb. Use it for identity, profession, nationality and states. It is highly irregular — memorise each form. Example: <strong>Ich bin Softwareingenieur.</strong>',
+        ex:[
+          {q:'Translate: "I am a software engineer."',a:['ich bin softwareingenieur','ich bin software-ingenieur','ich bin softwareentwickler'],h:'Ich + bin + profession'},
+          {q:'Translate: "We are a team."',a:['wir sind ein team'],h:'Wir takes "sind"'},
+          {q:'Translate: "She is new."',a:['sie ist neu'],h:'She = sie (lowercase in middle), use "ist"'},
+          {q:'Fill in: "Du ___ mein Kollege."',a:['bist'],h:'Du-form of sein'},
+          {q:'Translate: "They are developers."',a:['sie sind entwickler'],h:'They = sie, use "sind"'},
+          {q:'Fill in: "Ich ___ müde."',a:['bin'],h:'Ich-form of sein'},
+          {q:'Translate: "He is the team lead."',a:['er ist der teamleiter','er ist team lead'],h:'Er + ist'},
+          {q:'Fill in: "Wir ___ Kollegen."',a:['sind'],h:'Wir-form of sein'}
+        ]
+      },
+      {
+        id:'a1_haben', title:'Verb: haben (to have)',
+        rules:[
+          ['Ich habe','I have'],['Du hast','You have'],['Er/Sie/Es hat','He/She/It has'],
+          ['Wir haben','We have'],['Ihr habt','You all have'],['Sie haben','They/You (formal) have']
+        ],
+        note:'<strong>Haben</strong> is used for possession and as a helping verb for past tense. Example: <strong>Ich habe Erfahrung.</strong> Die Aufgabe hat einen Bug.',
+        ex:[
+          {q:'Translate: "I have experience."',a:['ich habe erfahrung'],h:'Ich + habe + noun'},
+          {q:'Translate: "The task has a bug."',a:['die aufgabe hat einen bug'],h:'hat = Er/Sie/Es form; Bug is masculine → einen'},
+          {q:'Translate: "We have a meeting."',a:['wir haben ein meeting','wir haben ein treffen'],h:'Wir takes "haben"'},
+          {q:'Fill in: "Er ___ 15 Jahre Erfahrung."',a:['hat'],h:'Er-form of haben'},
+          {q:'Translate: "Do you have time?" (informal)',a:['hast du zeit'],h:'Du-form: hast'},
+          {q:'Fill in: "Ihr ___ viele Aufgaben."',a:['habt'],h:'Ihr-form of haben'},
+          {q:'Translate: "She has a solution."',a:['sie hat eine lösung','sie hat eine loesung'],h:'Sie (she) + hat'},
+          {q:'Fill in: "Wir ___ kein Problem."',a:['haben'],h:'Wir-form of haben'}
+        ]
+      },
+      {
+        id:'a1_articles', title:'Articles: der, die, das',
+        rules:[
+          ['der (masculine)','der Bug, der Code, der Fehler, der Kollege'],
+          ['die (feminine)','die Aufgabe, die Lösung, die Erfahrung, die App'],
+          ['das (neuter)','das Meeting, das Projekt, das Team, das Programm'],
+          ['ein (masc/neut indef.)','ein Bug, ein Projekt, ein Meeting'],
+          ['eine (fem. indef.)','eine Lösung, eine Aufgabe, eine App'],
+          ['All plurals → die','die Bugs, die Lösungen, die Teams']
+        ],
+        note:'Every German noun has a grammatical gender — masculine, feminine, or neuter. There are no strict rules, so <strong>learn the article with every new word</strong>. Tech loanwords tend to be neuter: das Team, das Meeting, das Update.',
+        ex:[
+          {q:'Article for "Projekt" (neuter)?',a:['das'],h:'Neuter → das'},
+          {q:'Article for "Lösung" (feminine)?',a:['die'],h:'Feminine → die'},
+          {q:'Article for "Bug" (masculine)?',a:['der'],h:'Masculine → der'},
+          {q:'Indefinite article for "Meeting" (neuter)',a:['ein meeting','ein'],h:'Neuter indefinite = ein'},
+          {q:'Indefinite article for "Lösung" (feminine)',a:['eine lösung','eine'],h:'Feminine indefinite = eine'},
+          {q:'Article for "Code" (masculine)?',a:['der'],h:'Masculine → der'},
+          {q:'Indefinite article for "Bug" (masculine)',a:['ein bug','ein'],h:'Masculine indefinite = ein'},
+          {q:'Translate: "the error" (der Fehler)',a:['der fehler'],h:'Masculine definite = der'}
+        ]
+      },
+      {
+        id:'a1_nominative', title:'Nominative case',
+        rules:[
+          ['Subject of sentence','The nominative is used for the subject — who does the action.'],
+          ['der / ein','Masculine: Der Entwickler arbeitet. Ein Bug ist gefunden.'],
+          ['die / eine','Feminine: Die Lösung funktioniert. Eine Aufgabe wartet.'],
+          ['das / ein','Neuter: Das Team arbeitet. Ein Projekt läuft.'],
+          ['die (plural)','Plural: Die Bugs sind kritisch.'],
+          ['Pronouns','ich, du, er, sie, es, wir, ihr, sie/Sie']
+        ],
+        note:'The <strong>nominative case</strong> is the default form of a noun — the subject who performs the action. Articles in nominative: <strong>der / die / das / die</strong> and <strong>ein / eine / ein</strong>. This is what you learn first with every noun.',
+        ex:[
+          {q:'Which case is the subject of a sentence?',a:['nominativ','nominative'],h:'The subject is always nominative'},
+          {q:'Fill in: "___ Code funktioniert." (masculine)',a:['der'],h:'Masculine nominative = der'},
+          {q:'Fill in: "___ Lösung ist gut." (feminine)',a:['die'],h:'Feminine nominative = die'},
+          {q:'Fill in: "___ Team ist super." (neuter)',a:['das'],h:'Neuter nominative = das'},
+          {q:'Translate: "A bug exists."',a:['ein bug existiert','es gibt einen bug'],h:'Masculine indefinite nominative = ein'},
+          {q:'Fill in: "___ Entwickler arbeitet viel." (masculine)',a:['der'],h:'Masculine nominative = der'},
+          {q:'Translate: "The project is finished."',a:['das projekt ist fertig'],h:'Das Projekt — neuter nominative'},
+          {q:'Fill in: "___ Aufgabe ist schwer." (feminine)',a:['die'],h:'Feminine nominative = die'}
+        ]
+      },
+      {
+        id:'a1_negation', title:'Negation: nicht & kein',
+        rules:[
+          ['nicht','negates verbs and adjectives — Ich verstehe nicht.'],
+          ['kein (masc/neut)','negates masc/neuter nouns — kein Bug, kein Problem'],
+          ['keine (fem/plural)','negates fem/plural nouns — keine Zeit, keine Fehler'],
+          ['nie','never — Ich mache das nie.'],
+          ['noch nicht','not yet — Es ist noch nicht fertig.'],
+          ['nicht mehr','no longer — Er arbeitet nicht mehr dort.']
+        ],
+        note:'Use <strong>nicht</strong> to negate a verb or adjective. Use <strong>kein/keine</strong> to negate a noun — it replaces ein/eine. Example: Ich habe ein Meeting → Ich habe <strong>kein</strong> Meeting.',
+        ex:[
+          {q:'Negate: "Ich verstehe."',a:['ich verstehe nicht'],h:'nicht comes after the verb'},
+          {q:'Negate: "Ich habe eine Lösung."',a:['ich habe keine lösung','ich habe keine loesung'],h:'eine → keine for feminine'},
+          {q:'Negate: "Er hat einen Bug."',a:['er hat keinen bug'],h:'einen → keinen (masculine accusative)'},
+          {q:'Translate: "I do not understand."',a:['ich verstehe nicht'],h:'Verb + nicht'},
+          {q:'Translate: "We have no time."',a:['wir haben keine zeit'],h:'Zeit is feminine → keine'},
+          {q:'Translate: "She never works late."',a:['sie arbeitet nie spät','sie arbeitet nie spaet'],h:'nie = never'},
+          {q:'Translate: "The project is not yet finished."',a:['das projekt ist noch nicht fertig'],h:'noch nicht = not yet'},
+          {q:'Negate: "Ich habe ein Meeting."',a:['ich habe kein meeting'],h:'neuter → kein'}
+        ]
+      },
+      {
+        id:'a1_questions', title:'Question words (W-Fragen)',
+        rules:[
+          ['Wer?','Who? — Wer ist das?'],
+          ['Was?','What? — Was machst du?'],
+          ['Wo?','Where? — Wo arbeitest du?'],
+          ['Wohin?','Where to? — Wohin gehst du?'],
+          ['Wann?','When? — Wann fängst du an?'],
+          ['Warum? / Wieso?','Why? — Warum lernst du Deutsch?'],
+          ['Wie?','How? — Wie geht es dir?'],
+          ['Wie viel / Wie viele?','How much / How many?']
+        ],
+        note:'In German questions the verb comes <strong>second</strong> — right after the question word. The subject and verb swap positions. Like English: "Where DO you work?" → <strong>Wo arbeitest du?</strong>',
+        ex:[
+          {q:'Translate: "What do you do?" (informal)',a:['was machst du'],h:'Was + machst + du'},
+          {q:'Translate: "Where do you work?" (informal)',a:['wo arbeitest du'],h:'Wo + arbeitest + du'},
+          {q:'Translate: "Why are you learning German?"',a:['warum lernst du deutsch'],h:'Warum + lernst + du + Deutsch'},
+          {q:'Translate: "How are you?" (informal)',a:['wie geht es dir','wie gehts',"wie geht's"],h:'Wie geht es dir?'},
+          {q:'Translate: "Who is the team lead?"',a:['wer ist der teamleiter','wer ist die teamleiterin'],h:'Wer = who'},
+          {q:'Translate: "How much does it cost?"',a:['wie viel kostet das','wie viel kostet es'],h:'Wie viel + kostet + das'},
+          {q:'Translate: "When does the meeting start?"',a:['wann fängt das meeting an','wann faengt das meeting an','wann beginnt das meeting'],h:'Wann + verb (2nd position)'},
+          {q:'Translate: "Where are you going?"',a:['wohin gehst du'],h:'Wohin = where to (direction)'}
+        ]
+      },
+      {
+        id:'a1_numbers', title:'Numbers & time',
+        rules:[
+          ['1–10','eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn'],
+          ['11–20','elf, zwölf, dreizehn, vierzehn, fünfzehn, sechzehn, siebzehn, achtzehn, neunzehn, zwanzig'],
+          ['Tens','dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig, hundert'],
+          ['Time','Es ist zwei Uhr. Es ist halb drei (= 2:30). Viertel nach vier (4:15).'],
+          ['Days','Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag'],
+          ['Months','Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember']
+        ],
+        note:'Numbers above 20 combine: <strong>einundzwanzig</strong> (21 = one-and-twenty), <strong>zweiunddreißig</strong> (32). Time: <strong>halb</strong> means "half to" the next hour — halb drei = 2:30 (half-way to three)!',
+        ex:[
+          {q:'How do you say "15" in German?',a:['fünfzehn','fuenfzehn'],h:'fünf + zehn'},
+          {q:'How do you say "Wednesday"?',a:['mittwoch'],h:'Mitte = middle, Woche = week'},
+          {q:'Translate: "It is 3 o\'clock."',a:['es ist drei uhr'],h:'Es ist + number + Uhr'},
+          {q:'How do you say "30" in German?',a:['dreißig','dreissig'],h:'dreißig'},
+          {q:'Translate: "Monday morning"',a:['montag morgen','montagmorgen'],h:'Montag + Morgen'},
+          {q:'How do you say "half past two" (2:30)?',a:['halb drei'],h:'halb + next hour!'},
+          {q:'How do you say "Friday"?',a:['freitag'],h:'Freitag'},
+          {q:'How do you say "100"?',a:['hundert','einhundert'],h:'hundert'}
+        ]
+      }
+    ]
+  },
+  A2: {
+    label: 'A2 — Elementary',
+    description: 'Cases, separable verbs, modal verbs, past tense basics.',
+    topics: [
+      {
+        id:'a2_accusative', title:'Accusative case',
+        rules:[
+          ['Only masculine changes!','der → den, ein → einen, kein → keinen'],
+          ['Feminine stays same','die → die, eine → eine, keine → keine'],
+          ['Neuter stays same','das → das, ein → ein, kein → kein'],
+          ['When to use it','Direct object of a verb: Ich sehe den Code.'],
+          ['Common acc. prepositions','durch, für, gegen, ohne, um + accusative'],
+          ['Pronouns acc.','mich (me), dich (you), ihn (him), sie (her), uns (us)']
+        ],
+        note:'The accusative is used for the <strong>direct object</strong> — what receives the action. Only masculine articles change: <strong>der→den, ein→einen</strong>. Feminine and neuter stay the same.',
+        ex:[
+          {q:'Fill in: "Ich habe ___ Bug gefunden." (der Bug)',a:['einen'],h:'Masculine indefinite in accusative = einen'},
+          {q:'Fill in: "Wir brauchen ___ Lösung." (die Lösung)',a:['eine'],h:'Feminine stays the same'},
+          {q:'Fill in: "Er schreibt ___ Code." (der Code)',a:['den'],h:'Masculine definite in accusative = den'},
+          {q:'Fill in: "Ich starte ___ Programm." (das Programm)',a:['das'],h:'Neuter stays the same'},
+          {q:'Translate: "I need a task." (die Aufgabe)',a:['ich brauche eine aufgabe'],h:'Feminine → eine in accusative'},
+          {q:'Fill in: "Ich habe ___ Fehler gemacht." (der Fehler)',a:['einen'],h:'Masculine → einen'},
+          {q:'Fill in: "Sie schreibt ___ E-Mail." (die E-Mail)',a:['eine'],h:'Feminine → eine stays'},
+          {q:'Translate: "I see the team." (das Team)',a:['ich sehe das team'],h:'Neuter stays das'}
+        ]
+      },
+      {
+        id:'a2_dative', title:'Dative case',
+        rules:[
+          ['Masculine/Neuter: dem/einem','Ich helfe dem Kollegen. Mit einem Tool.'],
+          ['Feminine: der/einer','Ich helfe der Kollegin. Mit einer App.'],
+          ['Plural: den + noun+n','Ich helfe den Kollegen.'],
+          ['Common dative prepositions','mit, nach, bei, von, seit, aus, zu, gegenüber'],
+          ['Indirect object','Ich gebe dem Team das Feedback.'],
+          ['Pronouns dative','mir (me), dir (you), ihm (him), ihr (her), uns (us), euch (you all)']
+        ],
+        note:'The dative is used for the <strong>indirect object</strong> (to whom?) and after certain prepositions (mit, nach, bei, von, seit, aus, zu). Masculine and neuter use <strong>dem/einem</strong>; feminine uses <strong>der/einer</strong>.',
+        ex:[
+          {q:'Fill in: "Ich helfe ___ Kollegen." (der Kollege)',a:['dem'],h:'Masculine dative = dem'},
+          {q:'Fill in: "Ich arbeite mit ___ Team." (das Team)',a:['dem'],h:'Neuter dative = dem; mit always takes dative'},
+          {q:'Fill in: "Ich spreche mit ___ Kollegin." (die Kollegin)',a:['der'],h:'Feminine dative = der'},
+          {q:'Translate: "I work with the team."',a:['ich arbeite mit dem team'],h:'mit + dative: dem Team'},
+          {q:'Translate: "I give the team feedback."',a:['ich gebe dem team feedback','ich gebe dem team das feedback'],h:'Indirect object: dem Team (dative)'},
+          {q:'Fill in: "Er kommt aus ___ Projekt." (das Projekt)',a:['dem'],h:'aus + dative: dem Projekt'},
+          {q:'Translate: "since Monday" (der Montag)',a:['seit montag'],h:'seit + dative'},
+          {q:'Translate: "I am talking to the developer." (der Entwickler)',a:['ich spreche mit dem entwickler'],h:'mit + dative: dem Entwickler'}
+        ]
+      },
+      {
+        id:'a2_separable', title:'Separable verbs (Trennbare Verben)',
+        rules:[
+          ['anfangen → fängt...an','to start — Ich fange um 9 an.'],
+          ['aufhören → hört...auf','to stop — Ich höre um 18 Uhr auf.'],
+          ['abschicken → schickt...ab','to send off — Ich schicke den Code ab.'],
+          ['einloggen → loggt...ein','to log in — Ich logge mich ein.'],
+          ['vorstellen → stellt...vor','to introduce — Ich stelle mich vor.'],
+          ['anpassen → passt...an','to adapt — Ich passe den Code an.'],
+          ['herunterladen → lädt...herunter','to download — Ich lade die Datei herunter.'],
+          ['hochladen → lädt...hoch','to upload — Ich lade den Code hoch.']
+        ],
+        note:'Separable verbs split when used in a sentence — the prefix jumps to the <strong>END</strong>. Think: "I start at 9... <strong>an</strong>." In infinitive form they are one word (anfangen), but in a sentence the prefix separates.',
+        ex:[
+          {q:'Correct: "Ich anfange um 9 Uhr."',a:['ich fange um 9 uhr an','ich fange um 9 an'],h:'anfangen splits: fange...an'},
+          {q:'Translate: "I log in at 8."',a:['ich logge mich um 8 ein','ich logge mich um 8 uhr ein'],h:'einloggen → logge...ein'},
+          {q:'Translate: "She stops at 6."',a:['sie hört um 6 auf','sie hoert um 6 auf'],h:'aufhören → hört...auf'},
+          {q:'Translate: "I introduce myself."',a:['ich stelle mich vor'],h:'vorstellen → stelle...vor'},
+          {q:'Translate: "I am downloading the file."',a:['ich lade die datei herunter'],h:'herunterladen → lade...herunter'},
+          {q:'Translate: "We start the project."',a:['wir fangen das projekt an'],h:'anfangen → fangen...an'},
+          {q:'Translate: "I upload the code."',a:['ich lade den code hoch'],h:'hochladen → lade...hoch'},
+          {q:'Translate: "I adapt the code."',a:['ich passe den code an'],h:'anpassen → passe...an'}
+        ]
+      },
+      {
+        id:'a2_modal', title:'Modal verbs',
+        rules:[
+          ['können — ich kann','can / able to — Ich kann programmieren.'],
+          ['müssen — ich muss','must / have to — Ich muss den Bug fixen.'],
+          ['wollen — ich will','want to — Ich will Deutsch lernen.'],
+          ['sollen — ich soll','should / supposed to — Ich soll den Code reviewen.'],
+          ['dürfen — ich darf','may / allowed to — Ich darf das Projekt leiten.'],
+          ['möchten — ich möchte','would like to (polite) — Ich möchte helfen.']
+        ],
+        note:'Modal verbs push the main verb to the <strong>END</strong> as an infinitive. Example: <strong>Ich kann den Code schreiben.</strong> The modal conjugates; the main verb stays in infinitive. <strong>Möchten</strong> is more polite than wollen.',
+        ex:[
+          {q:'Translate: "I can program."',a:['ich kann programmieren'],h:'können + infinitive at end'},
+          {q:'Translate: "I must fix the bug."',a:['ich muss den bug fixen','ich muss den bug beheben'],h:'müssen + infinitive at end'},
+          {q:'Translate: "She wants to learn German."',a:['sie will deutsch lernen'],h:'wollen: sie will...'},
+          {q:'Translate: "We can start the project."',a:['wir können das projekt anfangen','wir können das projekt starten'],h:'können + infinitive at end'},
+          {q:'Fill in: "Ich ___ den Code schreiben." (must)',a:['muss'],h:'Ich-form of müssen'},
+          {q:'Translate: "I would like to help." (polite)',a:['ich möchte helfen','ich moechte helfen'],h:'möchten is more polite than wollen'},
+          {q:'Translate: "You should review the code." (informal)',a:['du sollst den code reviewen','du sollst den code überprüfen'],h:'sollen: du sollst...'},
+          {q:'Translate: "Am I allowed to work from home?"',a:['darf ich von zu hause arbeiten','darf ich zuhause arbeiten'],h:'dürfen: darf ich...?'}
+        ]
+      },
+      {
+        id:'a2_prepositions', title:'Prepositions',
+        rules:[
+          ['Accusative preps','durch, für, gegen, ohne, um — always accusative'],
+          ['Dative preps','mit, nach, bei, von, seit, aus, zu, gegenüber — always dative'],
+          ['Two-way: location (dat.)','in, an, auf, über, unter, vor, hinter, neben, zwischen + dative (where?)'],
+          ['Two-way: direction (acc.)','in, an, auf, über, unter, vor, hinter, neben, zwischen + accusative (where to?)'],
+          ['nach vs zu','nach for countries/cities (nach Berlin); zu for people/buildings (zum Arzt)'],
+          ['Contractions','in+dem=im, in+das=ins, an+dem=am, an+das=ans, zu+dem=zum, zu+der=zur']
+        ],
+        note:'Two-way prepositions (in, an, auf…) use <strong>dative for location</strong> (where?) and <strong>accusative for direction</strong> (where to?). Trick: <strong>Wo? → Dative. Wohin? → Accusative.</strong>',
+        ex:[
+          {q:'Translate: "I am coming to Germany."',a:['ich komme nach deutschland'],h:'nach + country'},
+          {q:'Translate: "I work as a software engineer."',a:['ich arbeite als softwareingenieur','ich arbeite als software-ingenieur'],h:'als = as (for roles)'},
+          {q:'Translate: "I work with the team."',a:['ich arbeite mit dem team'],h:'mit + dative: dem Team'},
+          {q:'Fill in: "Ich fahre ___ Berlin." (to Berlin)',a:['nach'],h:'nach for cities'},
+          {q:'Fill in: "Das Buch liegt ___ Tisch." (on the table — location)',a:['auf dem'],h:'auf + dative (location = wo?)'},
+          {q:'Fill in: "Ich lege das Buch ___ Tisch." (onto the table — direction)',a:['auf den'],h:'auf + accusative (direction = wohin?)'},
+          {q:'Translate: "since Monday"',a:['seit montag'],h:'seit + dative'},
+          {q:'Translate: "I go to the doctor."',a:['ich gehe zum arzt'],h:'zu + dem = zum (dative)'}
+        ]
+      },
+      {
+        id:'a2_plural', title:'Plural nouns',
+        rules:[
+          ['-e ending','der Tag → die Tage, der Bug → die Bugs (loanwords: -s)'],
+          ['-en / -n ending','die Lösung → die Lösungen, die Aufgabe → die Aufgaben'],
+          ['-er ending (+ umlaut)','das Wort → die Wörter, das Kind → die Kinder'],
+          ['-s ending (loanwords)','das Team → die Teams, das Meeting → die Meetings'],
+          ['no change','der Entwickler → die Entwickler, das Zimmer → die Zimmer'],
+          ['umlaut only','der Vater → die Väter, die Mutter → die Mütter']
+        ],
+        note:'All plural nouns use <strong>die</strong> as their article regardless of the original gender. German plurals are largely irregular — learn the plural form with each new word. Tech loanwords almost always just add <strong>-s</strong>.',
+        ex:[
+          {q:'Plural of "die Lösung"',a:['die lösungen','die loesungen'],h:'Lösung → Lösungen (-en)'},
+          {q:'Plural of "das Meeting"',a:['die meetings'],h:'Loanword → -s'},
+          {q:'Plural of "die Aufgabe"',a:['die aufgaben'],h:'Aufgabe → Aufgaben (-n)'},
+          {q:'Plural of "der Entwickler"',a:['die entwickler'],h:'No change — Entwickler stays'},
+          {q:'Plural of "das Team"',a:['die teams'],h:'Loanword → -s'},
+          {q:'Plural of "das Wort"',a:['die wörter','die woerter'],h:'Wort → Wörter (-er + umlaut)'},
+          {q:'Plural of "der Bug"',a:['die bugs'],h:'Loanword → -s'},
+          {q:'Translate: "the solutions"',a:['die lösungen','die loesungen'],h:'Lösung → Lösungen'}
+        ]
+      }
+    ]
+  },
+  B1: {
+    label: 'B1 — Intermediate',
+    description: 'Past tenses, word order, conjunctions, adjective endings.',
+    topics: [
+      {
+        id:'b1_perfect', title:'Perfect tense (Perfekt)',
+        rules:[
+          ['haben + past participle','Most verbs: Ich habe den Code geschrieben.'],
+          ['sein + past participle','Movement/change verbs: Ich bin nach Deutschland gekommen.'],
+          ['Regular: ge-+stem+-t','machen→gemacht, arbeiten→gearbeitet, lernen→gelernt'],
+          ['Irregular: ge-+stem+-en','schreiben→geschrieben, finden→gefunden, sehen→gesehen'],
+          ['Separable verbs','anfangen→angefangen, abschicken→abgeschickt'],
+          ['Past participle position','Always goes to the END of the sentence.']
+        ],
+        note:'The <strong>Perfekt</strong> is the most common past tense in spoken German. Use <strong>haben</strong> for most verbs; use <strong>sein</strong> for verbs expressing movement or change of state (gehen, kommen, fahren, werden).',
+        ex:[
+          {q:'Translate: "I have written the code."',a:['ich habe den code geschrieben'],h:'schreiben → geschrieben; haben'},
+          {q:'Translate: "She has found a bug."',a:['sie hat einen bug gefunden'],h:'finden → gefunden; haben'},
+          {q:'Translate: "I came to Germany."',a:['ich bin nach deutschland gekommen'],h:'kommen = movement → sein'},
+          {q:'Translate: "We have started the project."',a:['wir haben das projekt angefangen','wir haben das projekt gestartet'],h:'anfangen → angefangen (separable)'},
+          {q:'Past participle of "machen"',a:['gemacht'],h:'Regular: ge- + stem + -t'},
+          {q:'Past participle of "finden"',a:['gefunden'],h:'Irregular: ge- + stem + -en'},
+          {q:'Translate: "He has worked on the project."',a:['er hat an dem projekt gearbeitet','er hat am projekt gearbeitet'],h:'arbeiten → gearbeitet; haben'},
+          {q:'Translate: "They have gone home."',a:['sie sind nach hause gegangen'],h:'gehen = movement → sein; gegangen'}
+        ]
+      },
+      {
+        id:'b1_prateritum', title:'Simple past (Präteritum)',
+        rules:[
+          ['Used in writing','Präteritum is the written/narrative past tense.'],
+          ['sein → war','Ich war müde. Er war Entwickler.'],
+          ['haben → hatte','Ich hatte keine Zeit. Wir hatten ein Meeting.'],
+          ['Regular: stem+-te','machen→machte, arbeiten→arbeitete, lernen→lernte'],
+          ['Irregular (strong)','schreiben→schrieb, finden→fand, kommen→kam, gehen→ging'],
+          ['Modal past','können→konnte, müssen→musste, wollen→wollte, sollen→sollte']
+        ],
+        note:'In speech, Germans mostly use Perfekt. <strong>Präteritum</strong> is used in writing, stories, and formal reports. <strong>War</strong> (was) and <strong>hatte</strong> (had) are used even in speech — they sound more natural than the Perfekt forms.',
+        ex:[
+          {q:'Translate: "I was tired." (Präteritum)',a:['ich war müde'],h:'sein → war'},
+          {q:'Translate: "We had a meeting." (Präteritum)',a:['wir hatten ein meeting'],h:'haben → hatten'},
+          {q:'Translate: "She worked on the project." (Präteritum)',a:['sie arbeitete an dem projekt','sie arbeitete am projekt'],h:'arbeiten → arbeitete (regular)'},
+          {q:'Translate: "He wrote the code." (Präteritum)',a:['er schrieb den code'],h:'schreiben → schrieb (irregular)'},
+          {q:'Translate: "I could not help." (Präteritum)',a:['ich konnte nicht helfen'],h:'können → konnte'},
+          {q:'Translate: "They came on Monday." (Präteritum)',a:['sie kamen am montag'],h:'kommen → kamen'},
+          {q:'Translate: "I had to fix the bug." (Präteritum)',a:['ich musste den bug fixen','ich musste den bug beheben'],h:'müssen → musste'},
+          {q:'Translate: "She found a solution." (Präteritum)',a:['sie fand eine lösung'],h:'finden → fand'}
+        ]
+      },
+      {
+        id:'b1_wordorder', title:'Word order (Satzstellung)',
+        rules:[
+          ['Verb always 2nd','Ich arbeite heute. / Heute arbeite ich. (verb stays 2nd)'],
+          ['Time → Manner → Place','Ich fahre morgen (time) schnell (manner) nach München (place).'],
+          ['Separable prefix = end','Ich fange um 9 an. / Wir hören um 18 Uhr auf.'],
+          ['Modal: infinitive = end','Ich kann den Code schreiben.'],
+          ['dass/weil: verb = end','Ich weiß, dass er Entwickler ist.'],
+          ['Question: verb 2nd','Wo arbeitest du? / Wann fängst du an?']
+        ],
+        note:'The golden rule: <strong>the conjugated verb is always in position 2</strong>. In subordinate clauses (dass, weil, wenn, ob), the verb moves to the very end. Time comes before place: <strong>TMP rule — Time, Manner, Place</strong>.',
+        ex:[
+          {q:'Reorder: "arbeite / Heute / ich / in München"',a:['heute arbeite ich in münchen'],h:'Verb must be 2nd: Heute + arbeite + ich...'},
+          {q:'Translate: "Tomorrow I start the project."',a:['morgen fange ich das projekt an'],h:'Morgen first, verb stays 2nd, prefix at end'},
+          {q:'Translate: "I know that he is a developer."',a:['ich weiß dass er entwickler ist','ich weiß, dass er entwickler ist','ich weiss dass er entwickler ist'],h:'dass-clause: verb goes to end'},
+          {q:'Translate: "I learn German because I am coming to Germany."',a:['ich lerne deutsch weil ich nach deutschland komme','ich lerne deutsch, weil ich nach deutschland komme'],h:'weil-clause: verb goes to end'},
+          {q:'Correct: "Ich kann schreiben den Code."',a:['ich kann den code schreiben'],h:'Infinitive always at end with modal'},
+          {q:'Reorder: "den Bug / Ich / gefunden / habe"',a:['ich habe den bug gefunden'],h:'habe = position 2, gefunden = end'},
+          {q:'Translate: "I do not know if he is coming."',a:['ich weiß nicht ob er kommt','ich weiss nicht ob er kommt'],h:'ob-clause: verb at end'},
+          {q:'Translate: "She drives quickly to Berlin."',a:['sie fährt schnell nach berlin','sie faehrt schnell nach berlin'],h:'TMP: manner before place'}
+        ]
+      },
+      {
+        id:'b1_conjunctions', title:'Conjunctions (Konjunktionen)',
+        rules:[
+          ['Coordinating (no change)','und (and), aber (but), oder (or), denn (because), sondern (but rather)'],
+          ['Subordinating (verb → end)','weil (because), dass (that), wenn (when/if), ob (whether), obwohl (although)'],
+          ['Temporal','als (when — single past), wenn (when — repeated), nachdem (after), bevor (before)'],
+          ['als vs wenn','als = one specific past event; wenn = repeated or present/future'],
+          ['Two-part','entweder...oder (either...or), weder...noch (neither...nor), sowohl...als auch (both...and)'],
+          ['Relative clauses','der/die/das — Das ist der Code, der nicht funktioniert.']
+        ],
+        note:'Coordinating conjunctions (und, aber, oder) do <strong>not</strong> change word order. Subordinating conjunctions (weil, dass, wenn, ob) send the verb to the <strong>end of the clause</strong>.',
+        ex:[
+          {q:'Translate: "I learn German because I am going to Germany."',a:['ich lerne deutsch weil ich nach deutschland gehe','ich lerne deutsch, weil ich nach deutschland gehe'],h:'weil = subordinating → verb at end'},
+          {q:'Translate: "I know that he is a developer."',a:['ich weiß dass er entwickler ist','ich weiß, dass er entwickler ist'],h:'dass → verb at end'},
+          {q:'Translate: "I work but he does not." (aber)',a:['ich arbeite aber er nicht','ich arbeite, aber er nicht'],h:'aber = coordinating, no word order change'},
+          {q:'Translate: "When I was in Berlin, I worked a lot." (als)',a:['als ich in berlin war arbeitete ich viel','als ich in berlin war, arbeitete ich viel'],h:'als for single past event'},
+          {q:'Translate: "Either I fix it or we restart."',a:['entweder fixe ich es oder wir starten neu','entweder fixe ich es, oder wir starten neu'],h:'entweder...oder'},
+          {q:'Translate: "Although it is difficult, I continue."',a:['obwohl es schwierig ist mache ich weiter','obwohl es schwierig ist, mache ich weiter'],h:'obwohl → verb at end, then main clause'},
+          {q:'Translate: "I do not know whether he is coming."',a:['ich weiß nicht ob er kommt','ich weiß nicht, ob er kommt'],h:'ob → verb at end'},
+          {q:'Translate: "I learn German so that I can work in Germany."',a:['ich lerne deutsch damit ich in deutschland arbeiten kann','ich lerne deutsch, damit ich in deutschland arbeiten kann'],h:'damit → verb at end'}
+        ]
+      },
+      {
+        id:'b1_adjectives', title:'Adjective endings',
+        rules:[
+          ['After der/die/das (weak)','der alt-e Mann, die jung-e Frau, das neu-e Projekt'],
+          ['After ein/eine (mixed)','ein alt-er Mann, eine jung-e Frau, ein neu-es Projekt'],
+          ['No article (strong)','alt-er Mann, jung-e Frau, neu-es Projekt'],
+          ['Accusative masc. weak/mixed','-en: ich sehe den alt-en Code / einen alt-en Code'],
+          ['Dative all genders','-en: mit dem alt-en Team / mit einem gut-en Kollegen'],
+          ['Predicative (no ending)','Das Projekt ist gut. Der Code ist fertig.']
+        ],
+        note:'Adjective endings depend on <strong>3 things</strong>: the article type (der/ein/none), the gender of the noun, and the case. Predicative adjectives (after sein) have <strong>no ending</strong>: Das Projekt ist <strong>gut</strong>.',
+        ex:[
+          {q:'Fill in: "Das ist ein gut___ Projekt." (neuter, nominative, ein)',a:['gutes'],h:'ein + neuter nominative → -es'},
+          {q:'Fill in: "Ich sehe den alt___ Code." (masc, accusative, der)',a:['alten'],h:'der + masc accusative → -en'},
+          {q:'Fill in: "Er ist ein erfahren___ Ingenieur." (masc, nominative, ein)',a:['erfahrener'],h:'ein + masc nominative → -er'},
+          {q:'Fill in: "Ich arbeite mit dem neu___ Team." (neuter, dative)',a:['neuen'],h:'Dative always → -en'},
+          {q:'Fill in: "Das ist die best___ Lösung." (fem, nominative, die)',a:['beste'],h:'die + feminine nominative → -e'},
+          {q:'Fill in: "Wir brauchen ein schnell___ Programm." (neuter, accusative, ein)',a:['schnelles'],h:'ein + neuter accusative → -es'},
+          {q:'Translate: "The new project is good."',a:['das neue projekt ist gut'],h:'Predicative: gut (no ending); das neue Projekt (weak -e)'},
+          {q:'Fill in: "Er ist ein gut___ Entwickler." (masc, nominative, ein)',a:['guter'],h:'ein + masc nominative → -er'}
+        ]
+      },
+      {
+        id:'b1_reflexive', title:'Reflexive verbs',
+        rules:[
+          ['sich vorstellen','to introduce oneself — Ich stelle mich vor.'],
+          ['sich freuen','to be happy/look forward — Ich freue mich auf das Projekt.'],
+          ['sich befinden','to be located — Das Büro befindet sich in München.'],
+          ['sich erinnern','to remember — Ich erinnere mich daran.'],
+          ['Reflexive pronouns','mich, dich, sich, uns, euch, sich'],
+          ['Dative reflexive','Ich wasche mir die Hände. (I wash my hands.)']
+        ],
+        note:'Reflexive verbs use a reflexive pronoun (mich, dich, sich…) referring back to the subject. Many common German verbs are reflexive. <strong>Sich</strong> is used for er/sie/es/Sie/sie.',
+        ex:[
+          {q:'Translate: "I introduce myself."',a:['ich stelle mich vor'],h:'sich vorstellen → stelle mich vor'},
+          {q:'Translate: "I look forward to the project."',a:['ich freue mich auf das projekt'],h:'sich freuen auf + accusative'},
+          {q:'Translate: "The office is located in Munich."',a:['das büro befindet sich in münchen'],h:'sich befinden'},
+          {q:'Translate: "I remember the meeting."',a:['ich erinnere mich an das meeting'],h:'sich erinnern an + accusative'},
+          {q:'Fill in: "Er stellt ___ vor." (he introduces himself)',a:['sich'],h:'er/sie/es → sich'},
+          {q:'Translate: "We look forward to working together."',a:['wir freuen uns auf die zusammenarbeit'],h:'wir → uns'},
+          {q:'Fill in: "Ich freue ___ auf das Wochenende."',a:['mich'],h:'ich → mich'},
+          {q:'Translate: "Do you remember?" (informal)',a:['erinnerst du dich','erinnerst du dich daran'],h:'du → dich'}
+        ]
+      }
+    ]
+  },
+  B2: {
+    label: 'B2 — Upper Intermediate',
+    description: 'Passive voice, subjunctive, genitive, relative clauses.',
+    topics: [
+      {
+        id:'b2_passive', title:'Passive voice',
+        rules:[
+          ['werden + past participle','Der Code wird geschrieben. (The code is being written.)'],
+          ['Past passive (wurde)','Der Bug wurde gefunden. (The bug was found.)'],
+          ['Perfect passive','Der Code ist geschrieben worden.'],
+          ['Passive with modal','Der Bug muss gefunden werden.'],
+          ['von + agent','Der Code wird von mir geschrieben. (by me)'],
+          ['Zustandspassiv (sein)','Der Code ist geschrieben. (state — already done)']
+        ],
+        note:'German passive uses <strong>werden + past participle</strong>. The agent (by whom) is introduced with <strong>von + dative</strong>. Distinguish: <strong>Vorgangspassiv</strong> (action happening) vs <strong>Zustandspassiv</strong> (resulting state).',
+        ex:[
+          {q:'Translate: "The code is written."',a:['der code wird geschrieben'],h:'werden + past participle'},
+          {q:'Translate: "The bug was found."',a:['der bug wurde gefunden'],h:'wurde + past participle (past passive)'},
+          {q:'Translate: "The project is managed by her."',a:['das projekt wird von ihr geleitet'],h:'von + dative for agent'},
+          {q:'Translate: "The bug must be fixed."',a:['der bug muss behoben werden','der bug muss gefixed werden'],h:'modal + past participle + werden'},
+          {q:'Translate: "The code has been written." (perfect passive)',a:['der code ist geschrieben worden'],h:'ist + past participle + worden'},
+          {q:'Translate: "Mistakes are made."',a:['fehler werden gemacht'],h:'werden + gemacht'},
+          {q:'Translate: "The app is being tested."',a:['die app wird getestet'],h:'wird + getestet'},
+          {q:'Translate: "The door is closed." (state)',a:['die tür ist geschlossen'],h:'Zustandspassiv: sein + participle'}
+        ]
+      },
+      {
+        id:'b2_konjunktiv', title:'Konjunktiv II (Subjunctive)',
+        rules:[
+          ['würde + infinitive','General hypothetical: Ich würde das machen.'],
+          ['wäre (sein)','If I were: Wenn ich Experte wäre, ...'],
+          ['hätte (haben)','If I had: Wenn ich Zeit hätte, ...'],
+          ['könnte / müsste','could / would have to: Das könnte funktionieren.'],
+          ['Polite requests','Könnten Sie mir helfen? Würden Sie bitte...?'],
+          ['Unreal conditions','Wenn ich reich wäre, würde ich reisen.']
+        ],
+        note:'Konjunktiv II expresses <strong>hypothetical, unreal, or polite</strong> situations. In practice: use <strong>würde + infinitive</strong> for most verbs, but use the special forms for <strong>sein→wäre, haben→hätte, können→könnte, müssen→müsste</strong>.',
+        ex:[
+          {q:'Translate: "I would do that."',a:['ich würde das machen'],h:'würde + infinitive'},
+          {q:'Translate: "If I were an expert..."',a:['wenn ich experte wäre','wenn ich experte waere'],h:'sein → wäre'},
+          {q:'Translate: "If I had time, I would help."',a:['wenn ich zeit hätte würde ich helfen','wenn ich zeit haette würde ich helfen'],h:'hätte + würde + infinitive'},
+          {q:'Translate: "Could you help me?" (formal)',a:['könnten sie mir helfen','koennten sie mir helfen'],h:'können → könnte (polite)'},
+          {q:'Translate: "That could work."',a:['das könnte funktionieren','das koennte funktionieren'],h:'können → könnte'},
+          {q:'Translate: "Would you please send the code?"',a:['würden sie bitte den code schicken'],h:'würden Sie bitte + infinitive'},
+          {q:'Translate: "I would have more experience."',a:['ich hätte mehr erfahrung','ich haette mehr erfahrung'],h:'haben → hätte'},
+          {q:'Translate: "If I were you, I would learn German."',a:['wenn ich du wäre würde ich deutsch lernen','wenn ich an deiner stelle wäre würde ich deutsch lernen'],h:'wäre + würde + infinitive'}
+        ]
+      },
+      {
+        id:'b2_genitive', title:'Genitive case',
+        rules:[
+          ['Masculine/Neuter: des + -s/-es','des Projekts, des Teams, des Codes'],
+          ['Feminine/Plural: der','der Lösung, der Erfahrung, der Entwickler (pl.)'],
+          ['Indefinite: eines/einer','eines Projekts, einer Lösung'],
+          ['Genitive prepositions','wegen (because of), trotz (despite), während (during), statt (instead of)'],
+          ['Possession','Das ist das Projekt des Teams. (the team\'s project)'],
+          ['Von as substitute','Das Projekt von dem Team (informal substitute for genitive)']
+        ],
+        note:'The genitive expresses <strong>possession or relation</strong>. Masculine and neuter nouns add <strong>-s or -es</strong>. In spoken German, <strong>von + dative</strong> is often used instead of the genitive.',
+        ex:[
+          {q:'Translate: "the team\'s project"',a:['das projekt des teams'],h:'Genitive: des + Teams'},
+          {q:'Translate: "despite the difficulty"',a:['trotz der schwierigkeit'],h:'trotz + genitive'},
+          {q:'Translate: "during the meeting"',a:['während des meetings'],h:'während + genitive'},
+          {q:'Translate: "because of the bug"',a:['wegen des bugs'],h:'wegen + genitive'},
+          {q:'Fill in: "Das ist das Büro ___ Chefs." (masculine)',a:['des'],h:'Masculine genitive = des'},
+          {q:'Translate: "the solution of the problem"',a:['die lösung des problems'],h:'des Problems (neuter genitive)'},
+          {q:'Fill in: "Trotz ___ Fehler funktioniert es." (der Fehler, pl.)',a:['der'],h:'Plural genitive = der'},
+          {q:'Translate: "instead of the meeting"',a:['statt des meetings','anstatt des meetings'],h:'statt + genitive'}
+        ]
+      },
+      {
+        id:'b2_relative', title:'Relative clauses',
+        rules:[
+          ['Relative pronoun = article','der Code, der... / die App, die... / das Team, das...'],
+          ['Accusative relative','den Code, den er schrieb / die App, die er nutzt'],
+          ['Dative relative','dem Kollegen, dem ich helfe / der Kollegin, der ich helfe'],
+          ['Genitive relative','der Code, dessen Qualität gut ist'],
+          ['Verb goes to end','Das ist der Bug, der gestern gefunden wurde.'],
+          ['was after alles/nichts','Alles, was er sagt, stimmt.']
+        ],
+        note:'Relative pronouns match the gender and number of the noun they refer to, but their case depends on their role in the relative clause. The verb in the relative clause <strong>always goes to the end</strong>.',
+        ex:[
+          {q:'Translate: "The code that he wrote is good."',a:['der code den er schrieb ist gut','der code, den er schrieb, ist gut'],h:'den = masculine accusative relative pronoun'},
+          {q:'Translate: "The colleague who helps me is great."',a:['der kollege der mir hilft ist toll','der kollege, der mir hilft, ist toll'],h:'der = masculine nominative relative pronoun'},
+          {q:'Translate: "The app that I use is fast."',a:['die app die ich benutze ist schnell','die app, die ich benutze, ist schnell'],h:'die = feminine accusative/nominative'},
+          {q:'Translate: "The project that is running is important."',a:['das projekt das läuft ist wichtig','das projekt, das läuft, ist wichtig'],h:'das = neuter nominative relative'},
+          {q:'Translate: "Everything that he says is correct."',a:['alles was er sagt stimmt','alles, was er sagt, stimmt'],h:'was after alles/nichts/etwas'},
+          {q:'Fill in: "Der Entwickler, ___ ich helfe, ist neu." (dative masc.)',a:['dem'],h:'Dative masculine relative = dem'},
+          {q:'Translate: "The bug whose cause is unknown..."',a:['der bug dessen ursache unbekannt ist'],h:'dessen = genitive masculine/neuter'},
+          {q:'Fill in: "Die App, ___ er entwickelt, ist fertig." (acc. fem.)',a:['die'],h:'Accusative feminine relative = die'}
+        ]
+      },
+      {
+        id:'b2_comparative', title:'Comparative & superlative',
+        rules:[
+          ['Comparative: adj + -er','schnell → schneller, alt → älter (+ umlaut sometimes)'],
+          ['Superlative: am + adj + -sten','schnell → am schnellsten, alt → am ältesten'],
+          ['Attributive superlative','der schnellste Code, die beste Lösung, das größte Team'],
+          ['Irregular forms','gut→besser→am besten, viel→mehr→am meisten, gern→lieber→am liebsten'],
+          ['als for comparison','Er ist besser als ich. (He is better than me.)'],
+          ['Equality: so...wie','Er ist so gut wie ich. (He is as good as me.)']
+        ],
+        note:'Add <strong>-er</strong> for comparative and <strong>am -(e)sten</strong> for superlative. Many one-syllable adjectives add an umlaut: alt→älter, groß→größer, jung→jünger. Irregular: <strong>gut→besser→am besten</strong>.',
+        ex:[
+          {q:'Comparative of "schnell" (fast)',a:['schneller'],h:'schnell + -er'},
+          {q:'Superlative of "gut" (good)',a:['am besten'],h:'Irregular: gut → am besten'},
+          {q:'Translate: "He is better than me."',a:['er ist besser als ich'],h:'comparative + als'},
+          {q:'Translate: "This is the best solution."',a:['das ist die beste lösung'],h:'best- + feminine -e (attributive)'},
+          {q:'Comparative of "alt" (old)',a:['älter'],h:'alt + umlaut: älter'},
+          {q:'Translate: "I like Python more than Java."',a:['ich mag python lieber als java'],h:'gern → lieber (comparative)'},
+          {q:'Translate: "He is as good as me."',a:['er ist so gut wie ich'],h:'so + adjective + wie'},
+          {q:'Superlative of "viel" (much/many)',a:['am meisten'],h:'Irregular: viel → am meisten'}
+        ]
+      }
+    ]
+  },
+  C1: {
+    label: 'C1 — Advanced',
+    description: 'Complex grammar, nuanced usage, formal registers.',
+    topics: [
+      {
+        id:'c1_konjunktiv1', title:'Konjunktiv I (Reported speech)',
+        rules:[
+          ['Used for indirect speech','Er sagt, er sei Entwickler. (He says he is a developer.)'],
+          ['Formation: stem + endings','sein→sei, haben→habe, kommen→komme, machen→mache'],
+          ['When identical to indicative','Use Konjunktiv II or würde-form instead.'],
+          ['Common in news/media','Der Minister sagt, die Lage sei stabil.'],
+          ['sein in Konj. I','ich sei, du sei(e)st, er sei, wir seien, sie seien'],
+          ['haben in Konj. I','ich habe, er habe, wir haben — (wir: same as indicative → use Konj. II)']
+        ],
+        note:'Konjunktiv I is used for <strong>reported/indirect speech</strong> — especially in journalism and formal writing. It signals that you are reporting what someone else said, without confirming it is true.',
+        ex:[
+          {q:'Convert to indirect speech: "Er sagt: \'Ich bin Entwickler.\'"',a:['er sagt er sei entwickler','er sagt, er sei entwickler'],h:'bin → sei (Konjunktiv I)'},
+          {q:'Convert: "Sie sagt: \'Ich habe keine Zeit.\'"',a:['sie sagt sie habe keine zeit','sie sagt, sie habe keine zeit'],h:'habe stays same form — Konj. I'},
+          {q:'Translate: "The report says the project is finished."',a:['der bericht sagt das projekt sei fertig','der bericht sagt, das projekt sei fertig'],h:'sei = Konjunktiv I of sein'},
+          {q:'Convert: "Er sagt: \'Wir kommen morgen.\'"',a:['er sagt sie kommen morgen','er sagt, sie kommen morgen'],h:'kommen → kommen (same in Konj. I for wir/sie) — or würden'},
+          {q:'Translate: "He claims he has solved the problem."',a:['er behauptet er habe das problem gelöst','er behauptet, er habe das problem gelöst'],h:'Konjunktiv I Perfekt: habe + gelöst'},
+          {q:'Translate: "The minister says the situation is stable."',a:['der minister sagt die lage sei stabil','der minister sagt, die lage sei stabil'],h:'sei = Konjunktiv I'},
+          {q:'Convert: "Sie sagt: \'Das Programm läuft gut.\'"',a:['sie sagt das programm laufe gut','sie sagt, das programm laufe gut'],h:'läuft → laufe (Konjunktiv I)'},
+          {q:'Translate: "The developer says he needs more time."',a:['der entwickler sagt er brauche mehr zeit','der entwickler sagt, er brauche mehr zeit'],h:'braucht → brauche (Konjunktiv I)'}
+        ]
+      },
+      {
+        id:'c1_infinitivkonstruktionen', title:'Infinitive constructions',
+        rules:[
+          ['um...zu (in order to)','Ich lerne Deutsch, um in Deutschland zu arbeiten.'],
+          ['ohne...zu (without)','Er schrieb den Code, ohne ihn zu testen.'],
+          ['anstatt...zu (instead of)','Anstatt zu schlafen, arbeite ich.'],
+          ['zu + infinitive','Ich versuche, den Bug zu finden.'],
+          ['lassen + infinitive','Ich lasse den Code prüfen. (I have the code checked.)'],
+          ['scheinen + zu','Er scheint das Problem zu kennen.']
+        ],
+        note:'<strong>Um...zu</strong> expresses purpose (in order to). <strong>Ohne...zu</strong> expresses "without doing". <strong>Anstatt...zu</strong> means "instead of doing". The infinitive with <strong>zu</strong> always goes to the end.',
+        ex:[
+          {q:'Translate: "I learn German in order to work in Germany."',a:['ich lerne deutsch um in deutschland zu arbeiten','ich lerne deutsch, um in deutschland zu arbeiten'],h:'um...zu + infinitive at end'},
+          {q:'Translate: "He wrote the code without testing it."',a:['er schrieb den code ohne ihn zu testen'],h:'ohne...zu + infinitive'},
+          {q:'Translate: "Instead of sleeping, I work."',a:['anstatt zu schlafen arbeite ich','anstatt zu schlafen, arbeite ich'],h:'anstatt...zu + infinitive'},
+          {q:'Translate: "I try to find the bug."',a:['ich versuche den bug zu finden','ich versuche, den bug zu finden'],h:'versuchen + zu + infinitive'},
+          {q:'Translate: "I have the code checked."',a:['ich lasse den code prüfen'],h:'lassen + infinitive (no zu)'},
+          {q:'Translate: "He seems to know the problem."',a:['er scheint das problem zu kennen'],h:'scheinen + zu + infinitive'},
+          {q:'Translate: "She works hard in order to finish the project."',a:['sie arbeitet hart um das projekt zu beenden','sie arbeitet hart, um das projekt zu beenden'],h:'um...zu'},
+          {q:'Translate: "I help without being asked."',a:['ich helfe ohne gefragt zu werden','ich helfe, ohne gefragt zu werden'],h:'ohne...zu + passive infinitive'}
+        ]
+      },
+      {
+        id:'c1_extended_attributes', title:'Extended attributes',
+        rules:[
+          ['Partizip I as attribute','der laufende Code (the running code) — present participle'],
+          ['Partizip II as attribute','der geschriebene Code (the written code) — past participle'],
+          ['Extended attribute','der von mir geschriebene Code (the code written by me)'],
+          ['Partizip I formation','infinitive + d: laufend, arbeitend, wachsend'],
+          ['Partizip II formation','regular: ge-+stem+-t; irregular: geschrieben, gefunden'],
+          ['Adjective endings apply','All attributive participles take adjective endings.']
+        ],
+        note:'German can build complex noun phrases by placing long participial phrases <strong>before</strong> the noun — something impossible in English. <strong>der von allen verwendete Algorithmus</strong> = "the algorithm used by everyone."',
+        ex:[
+          {q:'Translate: "the running program" (attributive)',a:['das laufende programm'],h:'laufen → laufend + -e (neuter)'},
+          {q:'Translate: "the written code" (attributive)',a:['der geschriebene code'],h:'schreiben → geschrieben + -e (masculine)'},
+          {q:'Translate: "the found bug" (attributive)',a:['der gefundene bug'],h:'finden → gefunden + -e (masculine)'},
+          {q:'Translate: "the growing team" (attributive)',a:['das wachsende team'],h:'wachsen → wachsend + -e (neuter)'},
+          {q:'Translate: "the code written by me"',a:['der von mir geschriebene code'],h:'Extended attribute: von mir geschrieben + -e'},
+          {q:'Partizip I of "arbeiten"',a:['arbeitend'],h:'infinitive + d: arbeitend'},
+          {q:'Translate: "the solved problem" (attributive)',a:['das gelöste problem'],h:'lösen → gelöst + -e (neuter)'},
+          {q:'Translate: "the working developer" (attributive)',a:['der arbeitende entwickler'],h:'arbeiten → arbeitend + -e (masculine)'}
+        ]
+      },
+      {
+        id:'c1_register', title:'Formal register & style',
+        rules:[
+          ['Nominalisation','arbeiten → die Arbeit; entwickeln → die Entwicklung'],
+          ['Formal connectors','darüber hinaus (moreover), infolgedessen (consequently), diesbezüglich (in this regard)'],
+          ['Passive preference','Formal texts prefer passive: Es wurde beschlossen, dass...'],
+          ['Genitive preference','Formal texts prefer genitive over von: des Projekts (not: vom Projekt)'],
+          ['Funktionsverbgefüge','Entscheidung treffen (to make a decision), Kenntnis nehmen (to take note)'],
+          ['Konjunktiv I usage','Reported speech in reports/news: Er sei bereit, ...']
+        ],
+        note:'Formal German uses <strong>nominalisations</strong> (turning verbs into nouns), passive constructions, genitive, and longer sentence structures. Mastering formal register is essential for academic and professional contexts in Germany.',
+        ex:[
+          {q:'Nominalise: "entwickeln"',a:['die entwicklung'],h:'entwickeln → die Entwicklung (-ung suffix)'},
+          {q:'Nominalise: "entscheiden"',a:['die entscheidung'],h:'entscheiden → die Entscheidung'},
+          {q:'Translate formally: "As a result, the project was cancelled."',a:['infolgedessen wurde das projekt abgebrochen'],h:'infolgedessen + passive'},
+          {q:'Translate formally: "Moreover, the team needs support."',a:['darüber hinaus benötigt das team unterstützung'],h:'darüber hinaus'},
+          {q:'Translate: "to make a decision" (Funktionsverbgefüge)',a:['eine entscheidung treffen'],h:'Entscheidung treffen'},
+          {q:'Translate formally: "It was decided that..."',a:['es wurde beschlossen dass','es wurde beschlossen, dass'],h:'Passive + dass-clause'},
+          {q:'Nominalise: "analysieren"',a:['die analyse'],h:'analysieren → die Analyse'},
+          {q:'Translate formally: "In this regard, further measures are required."',a:['diesbezüglich sind weitere maßnahmen erforderlich'],h:'diesbezüglich + passive'}
+        ]
+      }
+    ]
+  }
+};
+
+const PASS_THRESHOLD = 0.75;
+const LEVEL_PASS = 0.7;
+
+let state = {
+  level: null,
+  topic: null,
+  mode: 'learn',
+  currentQ: 0,
+  correct: 0,
+  total: 0,
+  completed: {},
+  levelScores: {}
+};
+
+function load(s){try{const d=localStorage.getItem('de_state');if(d){const p=JSON.parse(d);state.completed=p.completed||{};state.levelScores=p.levelScores||{};}}catch(e){}}
+function save(){try{localStorage.setItem('de_state',JSON.stringify({completed:state.completed,levelScores:state.levelScores}));}catch(e){}}
+load();
+
+function buildSidebar(){
+  let h='';
+  Object.entries(CURRICULUM).forEach(([lvl,data])=>{
+    const allDone=data.topics.every(t=>state.completed[t.id]);
+    h+=`<div class="sidebar-title">${data.label}</div>`;
+    h+=`<button class="level-btn${allDone?' done':''}" onclick="selectLevel('${lvl}')" id="lvlbtn_${lvl}">${lvl} Overview</button>`;
+    data.topics.forEach(t=>{
+      const done=state.completed[t.id];
+      h+=`<button class="topic-btn${done?' done':''}" onclick="selectTopic('${lvl}','${t.id}')" id="tbtn_${t.id}">${t.title}</button>`;
+    });
+    h+=`<button class="topic-btn" style="color:var(--warn-text)" onclick="startEval('${lvl}')" id="evalbtn_${lvl}">⚑ Level test: ${lvl}</button>`;
+  });
+  document.getElementById('sidebarContent').innerHTML=h;
+}
+
+function updateSidebarActive(){
+  document.querySelectorAll('.level-btn,.topic-btn').forEach(b=>b.classList.remove('active'));
+  if(state.level && !state.topic){
+    const b=document.getElementById('lvlbtn_'+state.level);
+    if(b)b.classList.add('active');
+  }
+  if(state.topic){
+    const b=document.getElementById('tbtn_'+state.topic);
+    if(b)b.classList.add('active');
+  }
+}
+
+function selectLevel(lvl){
+  state.level=lvl;state.topic=null;state.mode='learn';
+  updateSidebarActive();
+  showLevelOverview(lvl);
+}
+
+function selectTopic(lvl,tid){
+  state.level=lvl;state.topic=tid;state.mode='learn';
+  state.currentQ=0;state.correct=0;state.total=0;
+  updateSidebarActive();
+  renderTopic();
+}
+
+function getTopicData(){
+  const lvl=CURRICULUM[state.level];
+  if(!lvl)return null;
+  return lvl.topics.find(t=>t.id===state.topic);
+}
+
+function showLevelOverview(lvl){
+  const data=CURRICULUM[lvl];
+  const score=state.levelScores[lvl];
+  let scoreHtml='';
+  if(score!==undefined){
+    const pct=Math.round(score*100);
+    const pass=score>=LEVEL_PASS;
+    scoreHtml=`<div class="eval-result ${pass?'eval-pass':'eval-fail'}">
+      Last level test: <strong>${pct}%</strong> — ${pass?'Passed! You can advance to the next level.':'Not yet — keep practising and try again!'}
+    </div>`;
+  }
+  const topicsHtml=data.topics.map(t=>{
+    const done=state.completed[t.id];
+    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--border);font-size:14px">
+      <span style="color:${done?'var(--success-text)':'var(--text3)'};font-size:16px">${done?'✓':'○'}</span>
+      <span style="flex:1;color:var(--text)">${t.title}</span>
+      <button class="btn-p" style="padding:4px 12px;font-size:12px" onclick="selectTopic('${lvl}','${t.id}')">Study</button>
+    </div>`;
+  }).join('');
+  document.getElementById('view').innerHTML=`
+    <div class="topbar"><h2>${data.label}</h2></div>
+    <p style="color:var(--text2);font-size:14px;margin-bottom:16px">${data.description}</p>
+    ${scoreHtml}
+    <div class="card">
+      <div class="card-title">Topics in this level</div>
+      ${topicsHtml}
+    </div>
+    <button class="btn" style="background:var(--warn-bg);color:var(--warn-text);border-color:var(--warn-border)" onclick="startEval('${lvl}')">Take level test →</button>
+  `;
+}
+
+function renderTopic(){
+  const t=getTopicData();
+  if(!t)return;
+  const modeHtml=`<div class="mode-toggle">
+    <button id="btnLearn" ${state.mode==='learn'?'class="active"':''} onclick="switchMode('learn')">Learn</button>
+    <button id="btnPractice" ${state.mode==='practice'?'class="active"':''} onclick="switchMode('practice')">Practice</button>
+  </div>`;
+  const badge=`<span class="badge badge-${state.level.toLowerCase()}">${state.level}</span>`;
+  if(state.mode==='learn'){
+    const rulesHtml=t.rules.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+    document.getElementById('view').innerHTML=`
+      <div class="topbar"><h2>${t.title} ${badge}</h2>${modeHtml}</div>
+      <div class="card">
+        <div class="card-title">Rules & examples</div>
+        <table class="rules-table">
+          <thead><tr><th>German</th><th>English / Notes</th></tr></thead>
+          <tbody>${rulesHtml}</tbody>
+        </table>
+        <div class="rule-note">${t.note}</div>
+      </div>
+      <button class="btn-p" onclick="switchMode('practice')">Practice this topic →</button>
+    `;
+  } else {
+    renderPractice(t, badge, modeHtml);
+  }
+}
+
+function renderPractice(t, badge, modeHtml){
+  const q=t.ex[state.currentQ%t.ex.length];
+  const prog=Math.round(((state.currentQ%t.ex.length)/t.ex.length)*100);
+  const acc=state.total>0?Math.round((state.correct/state.total)*100)+'%':'—';
+  document.getElementById('view').innerHTML=`
+    <div class="topbar"><h2>${t.title} ${badge}</h2>${modeHtml}</div>
+    <div class="score-bar">
+      <div class="score-pill">Correct: <span id="sc">${state.correct}</span></div>
+      <div class="score-pill">Attempts: <span id="st">${state.total}</span></div>
+      <div class="score-pill">Accuracy: <span id="sa">${acc}</span></div>
+    </div>
+    <div class="prog-wrap"><div class="prog-fill" id="pf" style="width:${prog}%"></div></div>
+    <div class="card">
+      <div class="q-num" id="qn">Question ${state.currentQ%t.ex.length+1} of ${t.ex.length}</div>
+      <div class="q-text" id="qt">${q.q}</div>
+      <input type="text" id="qi" placeholder="Type your answer in German..." autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkAns()" />
+      <div class="hint-text" id="qh"></div>
+      <div class="btn-row">
+        <button class="btn-p" onclick="checkAns()">Check ↵</button>
+        <button onclick="nextQ()">Skip</button>
+        <button onclick="showHint()">Hint</button>
+        <button onclick="resetPractice()">Reset</button>
+      </div>
+      <div class="feedback" id="fb"></div>
+    </div>
+  `;
+  document.getElementById('qi').focus();
+}
+
+function switchMode(m){
+  state.mode=m;
+  if(m==='practice'){state.currentQ=0;state.correct=0;state.total=0;}
+  renderTopic();
+}
+
+function norm(s){
+  return s.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim();
+}
+
+function checkAns(){
+  const t=getTopicData();if(!t)return;
+  const inp=document.getElementById('qi');if(!inp)return;
+  const val=inp.value.trim();if(!val)return;
+  const q=t.ex[state.currentQ%t.ex.length];
+  const correct=q.a.some(a=>norm(val)===norm(a));
+  state.total++;
+  if(correct)state.correct++;
+  const fb=document.getElementById('fb');
+  if(correct){
+    fb.className='feedback ok';
+    fb.textContent=encourage()+' Correct!';
+    setTimeout(()=>nextQ(),1400);
+  } else {
+    fb.className='feedback bad';
+    fb.innerHTML='Not quite. Correct: <strong>'+q.a[0]+'</strong>';
+    setTimeout(()=>nextQ(),2600);
+  }
+  updateScoreDisplay();
+  if(state.correct>=Math.ceil(t.ex.length*PASS_THRESHOLD)&&state.total>=t.ex.length){
+    state.completed[t.id]=true;save();buildSidebar();updateSidebarActive();
+  }
+}
+
+function updateScoreDisplay(){
+  const sc=document.getElementById('sc');const st=document.getElementById('st');const sa=document.getElementById('sa');
+  if(sc)sc.textContent=state.correct;
+  if(st)st.textContent=state.total;
+  if(sa)sa.textContent=state.total>0?Math.round((state.correct/state.total)*100)+'%':'—';
+}
+
+function nextQ(){
+  state.currentQ++;
+  const t=getTopicData();if(!t)return;
+  const q=t.ex[state.currentQ%t.ex.length];
+  const prog=Math.round(((state.currentQ%t.ex.length)/t.ex.length)*100);
+  const qn=document.getElementById('qn');const qt=document.getElementById('qt');
+  const qi=document.getElementById('qi');const qh=document.getElementById('qh');
+  const fb=document.getElementById('fb');const pf=document.getElementById('pf');
+  if(qn)qn.textContent='Question '+(state.currentQ%t.ex.length+1)+' of '+t.ex.length;
+  if(qt)qt.textContent=q.q;
+  if(qi){qi.value='';qi.focus();}
+  if(qh)qh.textContent='';
+  if(fb){fb.className='feedback';fb.textContent='';}
+  if(pf)pf.style.width=prog+'%';
+}
+
+function showHint(){
+  const t=getTopicData();if(!t)return;
+  const q=t.ex[state.currentQ%t.ex.length];
+  const qh=document.getElementById('qh');
+  if(qh)qh.textContent='Hint: '+q.h;
+}
+
+function resetPractice(){state.currentQ=0;state.correct=0;state.total=0;renderTopic();}
+
+function encourage(){
+  const m=['Sehr gut!','Wunderbar!','Ausgezeichnet!','Prima!','Richtig!','Toll!'];
+  return m[Math.floor(Math.random()*m.length)];
+}
+
+// EVALUATION
+let evalState={level:null,questions:[],current:0,correct:0,total:0};
+
+function startEval(lvl){
+  state.level=lvl;state.topic=null;
+  updateSidebarActive();
+  const data=CURRICULUM[lvl];
+  // Pick 3 questions per topic randomly
+  let qs=[];
+  data.topics.forEach(t=>{
+    const shuffled=[...t.ex].sort(()=>Math.random()-0.5);
+    shuffled.slice(0,3).forEach(q=>qs.push({...q,topicTitle:t.title}));
+  });
+  qs=qs.sort(()=>Math.random()-0.5);
+  evalState={level:lvl,questions:qs,current:0,correct:0,total:0};
+  renderEvalQ();
+}
+
+function renderEvalQ(){
+  const {questions,current,correct,total,level}=evalState;
+  if(current>=questions.length){showEvalResult();return;}
+  const q=questions[current];
+  const prog=Math.round((current/questions.length)*100);
+  document.getElementById('view').innerHTML=`
+    <div class="topbar"><h2>Level Test: ${level}</h2></div>
+    <div class="score-bar">
+      <div class="score-pill">Question: <span>${current+1} / ${questions.length}</span></div>
+      <div class="score-pill">Correct: <span id="esc">${correct}</span></div>
+    </div>
+    <div class="prog-wrap"><div class="prog-fill" style="width:${prog}%"></div></div>
+    <div class="card">
+      <div class="q-num" style="margin-bottom:4px">Topic: ${q.topicTitle}</div>
+      <div class="q-text">${q.q}</div>
+      <input type="text" id="eqi" placeholder="Type your answer..." autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkEval()" />
+      <div class="hint-text" id="eqh"></div>
+      <div class="btn-row">
+        <button class="btn-p" onclick="checkEval()">Check ↵</button>
+        <button onclick="skipEval()">Skip</button>
+        <button onclick="document.getElementById('eqh').textContent='Hint: '+evalState.questions[evalState.current].h">Hint</button>
+      </div>
+      <div class="feedback" id="efb"></div>
+    </div>
+  `;
+  document.getElementById('eqi').focus();
+}
+
+function checkEval(){
+  const qi=document.getElementById('eqi');if(!qi)return;
+  const val=qi.value.trim();if(!val)return;
+  const q=evalState.questions[evalState.current];
+  const correct=q.a.some(a=>norm(val)===norm(a));
+  evalState.total++;
+  if(correct)evalState.correct++;
+  const fb=document.getElementById('efb');
+  if(correct){
+    fb.className='feedback ok';fb.textContent=encourage()+' Correct!';
+    setTimeout(()=>{evalState.current++;renderEvalQ();},1200);
+  } else {
+    fb.className='feedback bad';fb.innerHTML='Not quite. Correct: <strong>'+q.a[0]+'</strong>';
+    setTimeout(()=>{evalState.current++;renderEvalQ();},2400);
+  }
+}
+
+function skipEval(){evalState.current++;renderEvalQ();}
+
+function showEvalResult(){
+  const {correct,questions,level}=evalState;
+  const total=questions.length;
+  const pct=Math.round((correct/total)*100);
+  const pass=correct/total>=LEVEL_PASS;
+  state.levelScores[level]=correct/total;save();
+  const levels=Object.keys(CURRICULUM);
+  const nextIdx=levels.indexOf(level)+1;
+  const nextLevel=nextIdx<levels.length?levels[nextIdx]:null;
+  let nextHtml='';
+  if(pass&&nextLevel){
+    nextHtml=`<button class="btn-s" style="margin-top:10px" onclick="selectLevel('${nextLevel}')">Go to ${nextLevel} →</button>`;
+  }
+  document.getElementById('view').innerHTML=`
+    <div class="eval-header">
+      <h3>Level Test Complete: ${level}</h3>
+      <p>${CURRICULUM[level].label}</p>
+    </div>
+    <div class="big-score" style="color:${pass?'var(--success-text)':'var(--warn-text)'}">${pct}%</div>
+    <div class="big-label">${correct} / ${total} correct</div>
+    <div class="eval-result ${pass?'eval-pass':'eval-fail'}">
+      ${pass
+        ? `Herzlichen Glückwunsch! 🎉 You passed ${level}! You have a solid grasp of this level's grammar.${nextLevel?' You are ready to advance to '+nextLevel+'!':' You have completed the full curriculum!'}`
+        : `Keep practising! You need ${Math.ceil(total*LEVEL_PASS)} correct answers (${Math.round(LEVEL_PASS*100)}%) to pass. Review the topics and try again.`
+      }
+    </div>
+    <div class="btn-row">
+      <button onclick="selectLevel('${level}')">Review ${level} topics</button>
+      <button onclick="startEval('${level}')">Retry test</button>
+      ${nextHtml}
+    </div>
+  `;
+  buildSidebar();
+}
+
+// Welcome screen
+function showWelcome(){
+  const levelCards=Object.entries(CURRICULUM).map(([lvl,data])=>{
+    const score=state.levelScores[lvl];
+    const pct=score!==undefined?Math.round(score*100)+'%':'—';
+    const allDone=data.topics.every(t=>state.completed[t.id]);
+    return `<div class="level-card" onclick="selectLevel('${lvl}')">
+      <div class="lc-title"><span class="badge badge-${lvl.toLowerCase()}">${lvl}</span></div>
+      <div class="lc-sub" style="margin-top:6px">${data.description.split(':')[1]||data.description}</div>
+      ${score!==undefined?`<div style="font-size:12px;margin-top:8px;color:${score>=LEVEL_PASS?'var(--success-text)':'var(--warn-text)'}">Test: ${pct} ${score>=LEVEL_PASS?'✓':''}</div>`:''}
+      ${allDone?'<div style="font-size:12px;margin-top:4px;color:var(--success-text)">All topics done ✓</div>':''}
+    </div>`;
+  }).join('');
+  document.getElementById('view').innerHTML=`
+    <div class="welcome">
+      <h2>🇩🇪 German Grammar Curriculum</h2>
+      <p>A complete A1 → C1 curriculum. Study each topic, practise with exercises, and take the level test to unlock the next level. Topics marked ✓ are completed.</p>
+    </div>
+    <div class="level-cards">${levelCards}</div>
+    <p style="font-size:13px;color:var(--text3);margin-top:16px;text-align:center">Select any level or topic from the sidebar to begin.</p>
+  `;
+}
+
+buildSidebar();
+showWelcome();
+</script>
 </body>
 </html>
